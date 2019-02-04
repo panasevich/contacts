@@ -1,0 +1,9 @@
+src/assets/data/config.json
+build
+node_modules/
+npm-debug.log
+src/i18n/*
+.idea
+*.iml
+*.mo
+e2e/reports/

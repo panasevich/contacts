@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CX LAM</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width = device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
+    <meta name="description" content="">
+
+    <script src="./js/main.js"></script>
+    <script>
+        var idx = 1;
+
+        function replaceAppContainer(id) {
+            const appElements = document.getElementsByClassName('app');
+            for(let i = 0; i < appElements.length; i++) {
+                appElements[i].remove();
+            }
+            const div = document.createElement('span');
+            const elementId = 'app' + id;
+            div.setAttribute('id', elementId);
+            div.setAttribute('class', 'app');
+            document.querySelector('body').appendChild(div);
+            window.init(elementId);
+        }
+
+        function onLoad() {
+            replaceAppContainer(idx);
+            idx++;
+        }
+
+        function onKeyPress(e) {
+            if (e.shiftKey && e.key === ' ') {
+                replaceAppContainer(idx);
+                idx++;
+            }
+        }
+    </script>
+</head>
+<body onload="onLoad()" onkeypress="onKeyPress(event)">
+    <div id="app"></div>
+</body>
+</html>
