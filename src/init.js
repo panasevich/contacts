@@ -18,7 +18,9 @@ const containers = new Map();
 const renderApp = (containerId) => {
     const container = document.getElementById(containerId);
     ReactDOM.render(
-        <App />,
+        <Provider store={store}>
+            <App />
+        </Provider>,
         container,
     );
     containers.set(containerId, container);
